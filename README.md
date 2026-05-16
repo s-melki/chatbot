@@ -23,30 +23,52 @@ bibliotheque/
 - MySQL 8.0+
 - Compte Groq gratuit (https://console.groq.com)
 
-### 2. Cloner et installer les dépendances
+### 2. Créer et activer un environnement virtuel
+
 ```bash
 cd bibliotheque
-pip install -r requirements.txt
+python3 -m venv venv
+source venv/bin/activate
 ```
 
-### 3. Configurer les variables d'environnement
+> Windows : `venv\Scripts\activate`
+
+### 3. Installer les dépendances
+
+```bash
+pip install flask flask-cors mysql-connector-python requests python-dotenv
+```
+
+### 4. Configurer les variables d'environnement
+
 ```bash
 cp .env.example .env
-# Éditez .env avec vos credentials MySQL et clé Groq
+nano .env   # ou: gedit .env / code .env
 ```
 
-### 4. Démarrer l'application
+Remplissez `.env` avec vos credentials :
+
+```
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=votre_mot_de_passe
+DB_NAME=bibliotheque
+GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+### 5. Démarrer l'application
+
 ```bash
-python app.py
+python3 app.py
 ```
 
 L'application est disponible sur : **http://localhost:5000**
 
-### 5. Initialiser les 50 livres
+### 6. Initialiser les 50 livres
+
 ```bash
 curl -X POST http://localhost:5000/api/init
 ```
-Ou via le bouton dans l'interface.
 
 ---
 
@@ -82,9 +104,9 @@ Ou via le bouton dans l'interface.
 
 ### Chatbot AI
 
-| Méthode | Route         | Description                          |
-|---------|---------------|--------------------------------------|
-| POST    | /api/chatbot  | Envoyer un message au chatbot Groq   |
+| Méthode | Route         | Description                        |
+|---------|--------------|------------------------------------|
+| POST    | /api/chatbot | Envoyer un message au chatbot Groq |
 
 #### Body
 ```json
@@ -106,7 +128,7 @@ Ou via le bouton dans l'interface.
 3. **API Keys** → **Create API Key**
 4. Copiez la clé dans `.env` : `GROQ_API_KEY=gsk_...`
 
-Le modèle utilisé est **llama-3.3-70b-versatile** (gratuit, très rapide).
+Le modèle utilisé est **llama-3.3-70b-versatile** (gratuit, très performant).
 
 ---
 
