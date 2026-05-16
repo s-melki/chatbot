@@ -1,0 +1,46 @@
+# ─── Environnement Python ─────────────────────────────────────
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# ─── Variables d'environnement (clés API, mots de passe) ──────
+.env
+*.env
+!.env.example
+
+# ─── Flask ────────────────────────────────────────────────────
+instance/
+.webassets-cache
+flask_session/
+
+# ─── Base de données ──────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+
+# ─── Logs ─────────────────────────────────────────────────────
+*.log
+logs/
+
+# ─── OS ───────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Éditeurs ─────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ─── Distribution / Build ─────────────────────────────────────
+dist/
+build/
+*.egg-info/
